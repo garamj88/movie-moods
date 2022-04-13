@@ -22,4 +22,27 @@ def create_movie():
 @movie_list.route('/<int:movie_id>')
 def movie(movie_id):
     movie = MovieList.query.get_or_404(movie_id) 
-    return render_template('movie.html', title=movie.title, date=movie.date, item=movie)
+    return render_template('movie.html', title=movie.title, date=movie.date, movie=movie)
+
+@movie_list.route('/<int:movie_id>/update',methods=['GET','POST'])
+@login_required
+def update(movie_id):
+    movie = MovieList.query.get_or_404(movie_id)
+
+    if movie.author != current_user:
+        abort(403)
+
+    form = MovieListForm()
+
+    if form.validate_on_submit():
+        movie.title = form.title.data
+        movie.genre = form.genre.data
+        db.session.commit()
+        flash('Movie Updated')
+        return redirect(url_for('movie_list.movie',movie_id=movie.id))
+
+    elif request.method == 'GET':
+        form.title.data = movie.title
+        form.genre.data = movie.genre
+
+    return render_template('create_post.html',title='Updating',form=form)
