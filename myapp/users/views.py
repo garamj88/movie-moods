@@ -8,6 +8,12 @@ from myapp.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 
 users = Blueprint('users', __name__) # dont forget to register this in __init__.py 
 
+@users.route('/<username>')
+def user_list(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    movie_list = MovieList.query.filter_by(author=user).order_by(MovieList.date.desc()).paginate(page=page, per_page=5) 
+    return render_template('user_movie_list.html', movie_list=movie_list, user=user)
 
 # register
 @users.route('/register', methods=['GET', 'POST'])
@@ -70,8 +76,4 @@ def account():
 
     return render_template('account.html', form=form)
 
-def user_list(username):
-    page = request.args.get('page', 1, type=int)
-    user = User.query.filter_by(username=username).first_or_404()
-    movie_list = MovieList.query.filter_by(author=user).order_by(MovieList.genre.asc()).paginate(page=page, per_page=5) 
-    return render_template('user_movie_list.html', movie_list=movie_list, user=user)
+

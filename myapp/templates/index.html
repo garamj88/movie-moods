@@ -1,7 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="jumbotron">
-        <h1>Party!</h1>
+<div class="jumbotron">
+    <h1>Blog</h1>
+</div>
+<div class="container">
+    {% for list in movie_list.items %}
+    <div class="card">
+        <div class="car-boy">
+            <h2>
+                <a class="card-title" href="{{url_for('movie_list.movie', movie_id=list.id)}}">{{list.title}}</a>
+                <a href="{{url_for('users.user_list', username=list.author.username)}}">Written by:
+                    {{list.author.username}}</a>
+            </h2>
+            <p>Published on: {{list.date.strftime('%Y - %m - %d')}}</p>
+            <a class="btn btn-primary" href="{{url_for('movie_list.movie', movie_id=list.id)}}">Movie Lists</a>
+        </div>
     </div>
-   
+    {% endfor %}
+</div>
+
+<nav aria-label="Page Navigation example">
+    <ul class="pagination justify-content-center">
+        {% for page_num in movie_list.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+        {% if movie_list.page == page_num %}
+        <li class="page-item disabled">
+            <a class="page-link" href="{{url_for('core.index', page=page_num)}}">{{ page_num }}</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="{{url_for('core.index', page=page_num)}}">{{ page_num }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
 {% endblock %}

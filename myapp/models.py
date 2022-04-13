@@ -47,4 +47,4 @@ class MovieList(db.Model):
         self.user_id = user_id 
     
     def __repr__(self):
-        return f"Post ID: {self.id} -- Genre: {self.genre} -- Title: {self.Title} -- Date: {self.date}"
+        return f"Movie ID: {self.id} -- Title: {self.Title} -- Date: {self.date}"

@@ -27,6 +27,9 @@
                 </li>
 
                 {% if current_user.is_authenticated %}
+                <li class="nav-link">
+                    <a href="{{url_for('movie_list.create_movie')}}">Add Movie</a> 
+                </li>
                 <li class="navbar-item">
                     <a class="navbar-link" href="{{url_for('users.logout')}}">Log Out</a>
                 </li>
