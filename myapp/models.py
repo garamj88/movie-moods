@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
-    lists = db.relationship('MyList', backref='author', lazy=True)
+    lists = db.relationship('MovieList', backref='author', lazy=True)
 
 
     def __init__(self, email, username, password):
@@ -32,8 +32,8 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"Username {self.username}"
 
-class MyList(db.Model):
-    __tablename__ = 'my_lists'
+class MovieList(db.Model):
+    __tablename__ = 'movie_list'
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(200), nullable=False)
