@@ -13,11 +13,12 @@ def load_user(user_id):
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
-
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
+    lists = db.relationship('MyList', backref='author', lazy=True)
+
 
     def __init__(self, email, username, password):
         self.email = email
@@ -31,19 +32,19 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"Username {self.username}"
 
-class BlogPost(db.Model):
-    __tablename__ = 'blog_postsd'
+class MyList(db.Model):
+    __tablename__ = 'my_lists'
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    title = db.Column(db.String(140), nullable=False)
-    text = db.Column(db.Text, nullable=False)
+    title = db.Column(db.String(200), nullable=False)
+    genre = db.Column(db.String(140), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 
-    def __init__(self, title, text, user_id):
+    def __init__(self, title, genre, user_id):
         self.title = title
-        self.text = text
+        self.genre = genre
         self.user_id = user_id
     
     def __repr__(self):
-        return f"Post ID: {self.id} -- Date: {self.date} --- Title: {self.Title}"
+        return f"Post ID: {self.id} -- Genre: {self.genre} -- Title: {self.Title} -- Date: {self.date}"
