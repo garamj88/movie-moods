@@ -10,14 +10,12 @@
     <h2>
         <a href="{{url_for('movie_list.movie', movie_id=item.id)}}">{{item.title}}</a>
     </h2>
+    <p>{{item.genre}}</p>
     Added by <a href="{{url_for('users.user_list', username=item.author.username)}}">{{item.author.username}}</a>
 
     <p class="text-muted">
         Added on {{item.date.strftime("%y-%m-%d")}}
     </p>
-    <br>
-    <p>{{item.text}}</p>
-    <br>
     {% endfor %}
     </div>
 

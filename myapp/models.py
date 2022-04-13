@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
-    lists = db.relationship('MovieList', backref='author', lazy=True)
+    list = db.relationship('MovieList', backref='author', lazy=True)
 
 
     def __init__(self, email, username, password):
@@ -44,7 +44,7 @@ class MovieList(db.Model):
     def __init__(self, title, genre, user_id):
         self.title = title
         self.genre = genre
-        self.user_id = user_id
+        self.user_id = user_id 
     
     def __repr__(self):
         return f"Post ID: {self.id} -- Genre: {self.genre} -- Title: {self.Title} -- Date: {self.date}"
