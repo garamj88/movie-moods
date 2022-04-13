@@ -37,10 +37,7 @@ login_manager.login_view = 'users.login'
 
 
 
-
-
-# Registering Blueprints - 
-
+# Registering Blueprints
 from myapp.core.views import core 
 app.register_blueprint(core)
 
@@ -52,3 +49,8 @@ app.register_blueprint(error_pages)
 #linking users views Blueprint
 from myapp.users.views import users
 app.register_blueprint(users)
+
+
+# Linking and registering movie_list views Blueprint
+from myapp.movie_list.views import movie_list
+app.register_blueprint(movie_list)
