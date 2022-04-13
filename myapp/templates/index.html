@@ -8,9 +8,7 @@
     <div class="card">
         <div class="car-boy">
             <h2>
-                <a class="card-title" href="{{url_for('movie_list.movie', movie_id=list.id)}}">{{list.title}}</a>
-                <a href="{{url_for('users.user_list', username=list.author.username)}}">Written by:
-                    {{list.author.username}}</a>
+                <a class="card-title" href="{{url_for('movie_list.movie', movie_id=list.id)}}">{{list.title}} {{list.genre}}</a>
             </h2>
             <p>Published on: {{list.date.strftime('%Y - %m - %d')}}</p>
         </div>
