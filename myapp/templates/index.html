@@ -13,7 +13,6 @@
                     {{list.author.username}}</a>
             </h2>
             <p>Published on: {{list.date.strftime('%Y - %m - %d')}}</p>
-            <a class="btn btn-primary" href="{{url_for('movie_list.movie', movie_id=list.id)}}">Movie Lists</a>
         </div>
     </div>
     {% endfor %}

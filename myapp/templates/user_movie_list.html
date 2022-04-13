@@ -6,15 +6,15 @@
       <h1>Movie List of {{user.username}}</h1>
     </div>
   </div>
-  {% for item in movie_list.items %}
+  {% for list in movie_list.items %}
   <h2>
-    <a href="{{url_for('movie_list.movie', movie_id=item.id)}}">{{item.title}}</a>
+    <a href="{{url_for('movie_list.movie', movie_id=list.id)}}">{{list.title}}</a>
   </h2>
-  <p>{{item.genre}}</p>
-  Added by <a href="{{url_for('users.user_list', username=item.author.username)}}">{{item.author.username}}</a>
+  <p>{{list.genre}}</p>
+  Added by <a href="{{url_for('users.user_list', username=list.author.username)}}">{{list.author.username}}</a>
 
   <p class="text-muted">
-    Added on {{item.date.strftime("%y-%m-%d")}}
+    Added on {{list.date.strftime("%y-%m-%d")}}
   </p>
   {% endfor %}
 </div>
