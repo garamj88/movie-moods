@@ -6,17 +6,17 @@
                 <h1>Movie List of {{user.username}}</h1>
             </div>
         </div>
-     {% for post in blog_posts.items %}
+     {% for item in movie_list.items %}
     <h2>
-        <a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}">{{post.title}}</a>
+        <a href="{{url_for('movie_list.movie', movie_id=item.id)}}">{{item.title}}</a>
     </h2>
-    Written By: <a href="{{url_for('users.user_posts', username=post.author.username)}}">{{post.author.username}}</a>
+    Added by <a href="{{url_for('users.user_list', username=item.author.username)}}">{{item.author.username}}</a>
 
     <p class="text-muted">
-        Published On: {{post.date.strftime("%y-%m-%d")}}
+        Added on {{item.date.strftime("%y-%m-%d")}}
     </p>
     <br>
-    <p>{{post.text}}</p>
+    <p>{{item.text}}</p>
     <br>
     {% endfor %}
     </div>
@@ -24,14 +24,14 @@
     <nav aria-label="Page Navigation example">
         <ul class="pagination justify-content-center">
 
-            {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-                {% if blog_posts.page == page_num %}
+            {% for page_num in movie_list.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                {% if movie_list.page == page_num %}
                 <li class="page-item disabled">
-                    <a class="page-link" href="{{url_for('users.user_posts', username=user.username, page=page_num)}}">{{ page_num }}</a>
+                    <a class="page-link" href="{{url_for('users.user_list', username=user.username, page=page_num)}}">{{ page_num }}</a>
                 </li>
                 {% else %}
                 <li class="page-item">
-                    <a class="page-link" href="{{url_for('users.user_posts', username=user.username, page=page_num)}}">{{ page_num }}</a>
+                    <a class="page-link" href="{{url_for('users.user_list', username=user.username, page=page_num)}}">{{ page_num }}</a>
                 </li>
                 {% endif %}
             {% endfor %}
