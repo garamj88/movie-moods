@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="jumbotron">
-    <h1>Blog</h1>
+    <h4>Blog</h4>
 </div>
 <div class="container">
     {% for list in movie_list.items %}
@@ -10,7 +10,7 @@
             <h2>
                 <a class="card-title" href="{{url_for('movie_list.movie', movie_id=list.id)}}">{{list.title}} {{list.genre}}</a>
             </h2>
-            <p>Published on: {{list.date.strftime('%Y - %m - %d')}}</p>
+            <!-- <p>Published on: {{list.date.strftime('%Y - %m - %d')}}</p> -->
         </div>
     </div>
     {% endfor %}
