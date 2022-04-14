@@ -46,3 +46,16 @@ def update(movie_id):
         form.genre.data = movie.genre
 
     return render_template('create_post.html',title='Updating',form=form)
+
+@movie_list.route('/<int:movie_id>/delete',methods=['GET','POST'])
+@login_required
+def delete_post(movie_id):
+
+    movie = MovieList.query.get_or_404(movie_id)
+    if movie.author != current_user:
+        abort(403)
+
+    db.session.delete(movie)
+    db.session.commit()
+    flash('Blog Post Deleted')
+    return redirect(url_for('core.index'))

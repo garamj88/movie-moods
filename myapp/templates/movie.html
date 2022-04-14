@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="jumbotron">
-  <h1>{{ list.title }}</h1>
-  <h2>Written by: {{list.author.username}}</h2>
-  <h3>Published: {{ list.date.strftime('%B %d, %Y') }}</h3>
-  <p>{{list.text}}</p>
-  {% if list.author == current_user %}
+  <h1>{{ movie.title }}</h1>
+  <h2>Written by: {{movie.author.username}}</h2>
+  <h3>Published: {{ movie.date.strftime('%B %d, %Y') }}</h3>
+  <p>{{movie.genre}}</p>
+  {% if movie.author == current_user %}
   <div>
-    <a class="btn btn-secondary" href="{{ url_for('movie_list.update', movie_id=list.id) }}">Update</a>
+    <a class="btn btn-secondary" href="{{ url_for('movie_list.update', movie_id=movie.id) }}">Update</a>
     <br>
-    <form action="{{ url_for('movie_list.delete_post', movie_id=list.id) }}" method="POST">
+    <form action="{{ url_for('movie_list.delete_post', movie_id=movie.id) }}" method="POST">
       <input class="btn btn-danger" type="submit" value="Delete">
     </form>
   </div>
