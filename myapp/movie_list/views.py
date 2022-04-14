@@ -20,6 +20,7 @@ def create_movie():
     return render_template('create_movie.html', form=form)
 
 @movie_list.route('/<int:movie_id>')
+@login_required
 def movie(movie_id):
     movie = MovieList.query.get_or_404(movie_id) 
     return render_template('movie.html', title=movie.title, date=movie.date, movie=movie)

@@ -28,7 +28,7 @@
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="navbar-item">
-                        <a class="havbar-link" href="{{url_for('movie_list.create_movie')}}">Add Movie</a>
+                        <a href="{{url_for('core.movies')}}">Movies</a>
                     </li>
                     <li class="navbar-item">
                         <a class="navbar-link" href="{{url_for('users.logout')}}">Log Out</a>
@@ -50,7 +50,6 @@
 
         <div>
             {% block content %}
-
             {% endblock %}
         </div>
     </div>
