@@ -1,20 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
-      <form class="form-group" method="POST">
-          {{form.hidden_tag()}}
-
-          <div class="form-group">
-              {{form.title.label(class="form-control-label")}}
-              {{form.title(class="form-control form-control-lg")}}
-          </div>
-          <div class="form-group">
-            {{form.genre.label(class="form-control-label")}}
-            {{form.genre(class="form-control form-control-lg")}}
-        </div>
-        <div class="form-group">
-            {{form.submit(class="btn btn-outline-info")}}
-        </div>
-      </form>
+<form class="movie-info-form" method="POST">
+  <div class="row">
+    {{form.hidden_tag()}}
+    <div class="form-group">
+      {{form.title.label}} {{form.title}}
     </div>
+    <div class="form-group">
+      {{form.genre.label}} {{form.genre}}
+    </div>
+    <div class="form-group">
+      {{form.mood.label}} {{form.mood}}
+    </div>
+    <div class="form-group">
+      {{form.director.label}} {{form.director}}
+    </div>
+    <div class="form-group">
+      {{form.release_year.label}} {{form.release_year}}
+    </div>
+    <div class="form-group">
+      {{form.submit}}
+    </div>
+  </div>
+</form>
 {% endblock %}
