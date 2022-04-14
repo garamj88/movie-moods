@@ -38,14 +38,19 @@ class MovieList(db.Model):
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(200), nullable=False)
     genre = db.Column(db.String(140), nullable=False)
-    # release_year = db.Column(db.Integer, nullable=False)
+    mood = db.Column(db.String(200), nullable=False)
+    director = db.Column(db.String(140), nullable=False)
+    release_year = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 
-    def __init__(self, title, genre, user_id):
+    def __init__(self, title, genre, mood, director, release_year, user_id):
         self.title = title
         self.genre = genre
-        self.user_id = user_id 
+        self.mood = mood
+        self.director = director
+        self.release_year = release_year
+        self.user_id = user_id
     
     def __repr__(self):
         return f"Movie ID: {self.id} -- Title: {self.Title} -- Date: {self.date}"
