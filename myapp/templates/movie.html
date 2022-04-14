@@ -5,6 +5,9 @@
   <h2>Written by: {{movie.author.username}}</h2>
   <h3>Published: {{ movie.date.strftime('%B %d, %Y') }}</h3>
   <p>{{movie.genre}}</p>
+  <p>{{movie.mood}}</p>
+  <p>{{movie.release_year}}</p>
+  <p>{{movie.director}}</p>
   {% if movie.author == current_user %}
   <div>
     <a class="btn btn-secondary" href="{{ url_for('movie_list.update', movie_id=movie.id) }}">Update</a>
