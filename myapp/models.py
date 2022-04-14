@@ -38,6 +38,7 @@ class MovieList(db.Model):
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(200), nullable=False)
     genre = db.Column(db.String(140), nullable=False)
+    # release_year = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 
