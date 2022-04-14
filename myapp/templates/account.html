@@ -1,28 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="jumbotron">
-    <div align="center">
-        <h4>Edit Your Personal Information</h4>
+<div class="row">
+    <div class="four columns">
+        <p><a href="{{url_for('users.user_list', username=current_user.username)}}">My Movies</a></p>
+        <p><a class="navbar-link" href="{{url_for('users.account')}}">Account</a></p>
+        <p><a class="logout-link" href="{{url_for('users.logout')}}">Log Out</a></p>
     </div>
-</div>
 
-<div class="container">
-    <form method="POST" action="" enctype="multipart/form-data">
-        <div class="form-group">
-            {{form.hidden_tag()}}
-        </div>
-        <div class="form-group">
-            {{form.username.label(class='form-group')}}
-            {{form.username(class='form-control')}}
-        </div>
-        <div class="form-group">
-            {{form.email.label(class='form-group')}}
-            {{form.email(class='form-control')}}
-        </div>
-        <div class="form-group">
-            {{form.submit(class='btn btn-primary')}}
-        </div>
-    </form>
+    <div class="eight columns">
+        <h5>Edit Your Account</h5>
+        <form method="POST" action="" enctype="multipart/form-data">
+            <div>
+                {{form.hidden_tag()}}
+            </div>
+            <div>
+                {{form.username.label(class='row')}}
+                {{form.username(class='u-full-width')}}
+            </div>
+            <div>
+                {{form.email.label(class='row')}}
+                {{form.email(class='u-full-width')}}
+            </div>
+            <div>
+                {{form.submit(class='u-full-width')}}
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}
