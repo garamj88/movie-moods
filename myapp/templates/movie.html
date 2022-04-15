@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="jumbotron">
-  <h1>{{ movie.title }}</h1>
-  <h2>Written by: {{movie.author.username}}</h2>
-  <h3>Published: {{ movie.date.strftime('%B %d, %Y') }}</h3>
-  <p>{{movie.genre}}</p>
-  <p>{{movie.mood}}</p>
-  <p>{{movie.release_year}}</p>
-  <p>{{movie.director}}</p>
+<div class="u-full-width">
+  <h4>{{movie.title}}</h4>
+  <p>{{movie.release_year}} | {{movie.genre}}</p>
+  <p>Director: {{movie.director}}</p>
+  <p>Watch it when you're in the mood for: {{movie.mood}}</p>
+
   {% if movie.author == current_user %}
   <div>
-    <a class="btn btn-secondary" href="{{ url_for('movie_list.update', movie_id=movie.id) }}">Update</a>
-    <br>
+    <p class="author">You added this movie on {{movie.date.strftime('%B %d, %Y')}} <a id="edit-btn"
+        href="{{ url_for('movie_list.update', movie_id=movie.id) }}">Edit</a>
+    </p>
     <form action="{{ url_for('movie_list.delete_movie', movie_id=movie.id) }}" method="POST">
-      <input class="btn btn-danger" type="submit" value="Delete">
+      <input id="delete-btn" type="submit" value="Delete">
     </form>
   </div>
+  {% else %}
+  <p class="date-author">Added by {{movie.author.username}} on {{movie.date.strftime('%B %d, %Y')}}</p>
   {% endif %}
 </div>
 {% endblock content %}

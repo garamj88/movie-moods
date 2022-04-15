@@ -2,19 +2,17 @@
 {% block content %}
 
 <div class="row">
-    <div class="four columns">
-        <h5>{{current_user.username}}</h5>
+    <div class="three columns">
+        <h5>Hello, {{current_user.username}}!</h5>
         <h6><a href="{{url_for('users.user_list', username=current_user.username)}}">My Movies</a></h6>
         <h6><a class="navbar-link" href="{{url_for('users.account')}}">Account</a></h6>
         <h6><a class="logout-link" href="{{url_for('users.logout')}}">Log Out</a></h6>
     </div>
 
-    <div class="eight columns">
-        <h5>Edit Your Account</h5>
+    <div class="nine columns">
+        <h5>Edit Account Info</h5>
         <form method="POST" action="" enctype="multipart/form-data">
-            <div>
                 {{form.hidden_tag()}}
-            </div>
             <div>
                 {{form.username.label}}
                 {{form.username(class='u-full-width')}}

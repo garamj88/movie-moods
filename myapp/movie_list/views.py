@@ -52,7 +52,7 @@ def update(movie_id):
         form.director.data = movie.director
         form.release_year.data = movie.release_year
 
-    return render_template('create_movie.html',title='Updating',form=form)
+    return render_template('update.html',title='Updating',form=form)
 
 @movie_list.route('/<int:movie_id>/delete',methods=['GET','POST'])
 @login_required

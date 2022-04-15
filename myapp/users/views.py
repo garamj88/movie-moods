@@ -75,3 +75,4 @@ def account():
         form.email.data = current_user.email
 
     return render_template('account.html', form=form)
+

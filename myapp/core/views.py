@@ -6,5 +6,5 @@ core = Blueprint('core', __name__)
 @core.route('/')
 def index():
     page = request.args.get('page', 1, type=int)
-    movie_list = MovieList.query.order_by(MovieList.mood.asc()).paginate(page=page, per_page=5)
+    movie_list = MovieList.query.order_by(MovieList.mood.asc()).paginate(page=page, per_page=10)
     return render_template('index.html', movie_list=movie_list)

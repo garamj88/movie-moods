@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h5>Edit a Movie</h5>
+<form class="movie-info-form" method="POST">
+  {{form.hidden_tag()}}
+  <div class="row">
+    <div class="nine columns">
+      {{form.title.label}} {{form.title(class='u-full-width', placeholder="Required")}}
+    </div>
+    <div class="three columns">
+      {{form.release_year.label}} {{form.release_year(class='u-full-width', placeholder="Required format: yyyy")}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="seven columns">
+      {{form.director.label}} {{form.director(class='u-full-width', placeholder="Required")}}
+    </div>
+    <div class="five columns">
+      {{form.genre.label}} {{form.genre(class='u-full-width', placeholder="Required")}}
+    </div>
+  </div>
+
+  <div class="row">
+    {{form.mood.label}} {{form.mood(class='u-full-width', placeholder="Required")}}
+  </div>
+
+  <div class="submit-btn">
+    {{form.submit(class="u-full-width")}}
+  </div>
+</form>
+</div>
+{% endblock %}

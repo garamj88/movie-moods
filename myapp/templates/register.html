@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-   
-<form method="POST">
-    {{form.hidden_tag()}}
-    {{form.email.label}}{{form.email}}<br>
-    {{form.username.label}}{{form.username}}<br>
-    {{form.password.label}}{{form.password}}<br>
-    {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
-    {{form.submit()}}
-</form>
+
+<div class="row">
+    <div class="three columns">
+        <h5>Sign up</h5>
+    </div>
+
+    <div class="nine columns">
+        <h5>Welcome to Movie Moods</h5>
+        <form method="POST">
+            {{form.hidden_tag()}}
+            <div>
+                {{form.email.label}}{{form.email(class='u-full-width')}}</div>
+            <div>
+                {{form.username.label}}{{form.username(class='u-full-width')}}</div>
+            <div>
+                {{form.password.label}}{{form.password(class='u-full-width')}}</div>
+            <div>
+                {{form.pass_confirm.label}}{{form.pass_confirm(class='u-full-width')}}</div>
+            <div>
+                {{form.submit()}}
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
