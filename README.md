@@ -28,6 +28,6 @@ Also, if you have favorite movies that you always watch for each specific mood, 
 <br>
 
 ## ICEBOX
-* Connect to movie API
+* Connect to a movie API
 * Search bar
 * Feature for like & save to watch list
