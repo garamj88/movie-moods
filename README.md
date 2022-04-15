@@ -14,7 +14,7 @@ Also, if you have favorite movies that you always watch for each specific mood, 
 ![alt text](https://trello.com/1/cards/62596e00e8527725933d7905/attachments/62596e24714bd60c21e679ce/download/Image_4-15-22_at_9.01_AM.jpg)
 <br>
 
-## [EXPLORE THE APP HERE](https://movie-moods.herokuapp.com/)
+## EXPLORE [Movie Moods](https://movie-moods.herokuapp.com/) HERE
 <br>
 
 ## TECHNOLOGY USED
