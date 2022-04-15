@@ -4,7 +4,7 @@
   <h4>{{movie.title}}</h4>
   <p>{{movie.release_year}} | {{movie.genre}}</p>
   <p>Director: {{movie.director}}</p>
-  <p>Watch it when you're in the mood for: {{movie.mood}}</p>
+  <p>Watch it when you're in the mood for: <br>{{movie.mood}}</p>
 
   {% if movie.author == current_user %}
   <div>
