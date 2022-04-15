@@ -272,7 +272,6 @@ h5 {
 h6 {
   font-size: 1.5rem;
   line-height: 1.6;
-  margin-top: 2rem;
 }
 
 /* Larger than phablet */
@@ -514,7 +513,7 @@ pre>code {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 table {
-  margin-top: 2.5rem;
+  margin-top: 4rem;
 }
 
 th,
@@ -647,12 +646,85 @@ td {
   text-decoration: underline;
 }
 
-#add-movie {
-  display: flex;
-  justify-content: right;
+#add-movie-link {
+  text-decoration: underline;
 }
 
+#add-movie-link:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
 #navbar {
+  display: flex;
+  flex-direction: row;
   border-bottom: solid 1px #cecece;
   padding: 1rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-link {
+  font-size: 2rem;
+  color:#373737;
+}
+
+
+#page-nums-group {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-num {
+  list-style: none;
+  padding: 0 .5rem;
+  border-bottom: 1px solid #cecece;
+  margin: 0 .5rem;
+}
+
+.page-link {
+  color: #cecece;
+}
+
+.page-num:hover {
+  list-style: none;
+  color: #373737;
+  border-bottom: 1px solid gray;
+}
+
+#page-num-active {
+  font-weight: 100;
+  color: #373737;
+  border-bottom: 1px solid gray;
+}
+
+#sign-in-up-group {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-in-up {
+  list-style: none;
+  padding: 0 .5rem;
+  color: gray
+  margin: 0 .5rem;
+}
+
+.sign-in-up:hover {
+  list-style: none;
+  color: #373737;
+  border-bottom: 1px solid gray;
+}
+
+.page-link {
+  color: gray;
+}
+
+.page-link:hover {
+  color: #373737;
 }
