@@ -3,9 +3,10 @@
 
 <div class="row">
     <div class="four columns">
-        <p><a href="{{url_for('users.user_list', username=current_user.username)}}">My Movies</a></p>
-        <p><a class="navbar-link" href="{{url_for('users.account')}}">Account</a></p>
-        <p><a class="logout-link" href="{{url_for('users.logout')}}">Log Out</a></p>
+        <h5>{{current_user.username}}</h5>
+        <h6><a href="{{url_for('users.user_list', username=current_user.username)}}">My Movies</a></h6>
+        <h6><a class="navbar-link" href="{{url_for('users.account')}}">Account</a></h6>
+        <h6><a class="logout-link" href="{{url_for('users.logout')}}">Log Out</a></h6>
     </div>
 
     <div class="eight columns">
@@ -15,14 +16,14 @@
                 {{form.hidden_tag()}}
             </div>
             <div>
-                {{form.username.label(class='row')}}
+                {{form.username.label}}
                 {{form.username(class='u-full-width')}}
             </div>
             <div>
-                {{form.email.label(class='row')}}
+                {{form.email.label}}
                 {{form.email(class='u-full-width')}}
             </div>
-            <div>
+            <div class="submit-btn">
                 {{form.submit(class='u-full-width')}}
             </div>
         </form>
