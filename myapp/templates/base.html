@@ -21,31 +21,21 @@
 
 <body>
     <nav id="navbar" class="u-full-width">
-        <ul class="navbar-list">
-            <li class="navbar-item">
-                <a href="{{url_for('core.movies')}}">Movies</a>
-            </li>
-            <li class="nav-home">
-                <a class="navbar-link" href="{{url_for('core.index')}}">
-                    Movie<br>Moods
-                </a>
-            </li>
-            {% if current_user.is_authenticated %}
-            <li class="navbar-item">
-                <a class="navbar-link" href="{{url_for('users.account')}}">{{current_user.username}}</a>
-            </li>
-            <li class="navbar-item">
-                <a class="navbar-link" href="{{url_for('users.logout')}}">Log Out</a>
-            </li>
-            {% else %}
-            <li class="navbar-item">
-                <a class="navbar-link" href="{{url_for('users.login')}}">Sign in</a>
-            </li>
-            <li class="navbar-item">
-                <a class="navbar-link" href="{{url_for('users.register')}}">Sign up</a>
-            </li>
-            {% endif %}
-        </ul>
+        <div class="nav-home">
+            <a class="home-link" href="{{url_for('core.index')}}">
+                Movie<br>Moods
+            </a>
+        </div>
+        {% if current_user.is_authenticated %}
+        <div class="nav-item">
+            <a class="nav-link" href="{{url_for('users.account')}}">{{current_user.username}}</a>
+        </div>
+        {% else %}
+        <div class="nav-item">
+            <a class="nav-link" href="{{url_for('users.login')}}">Sign in</a> /
+            <a class="nav-link" href="{{url_for('users.register')}}">Sign up</a>
+        </div>
+        {% endif %}
     </nav>
 
     <div class="container">

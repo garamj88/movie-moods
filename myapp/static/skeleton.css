@@ -266,12 +266,13 @@ h5 {
   font-size: 1.8rem;
   line-height: 1.5;
   letter-spacing: -.05rem;
+  margin-top: 2rem;
 }
 
 h6 {
   font-size: 1.5rem;
   line-height: 1.6;
-  letter-spacing: 0;
+  margin-top: 2rem;
 }
 
 /* Larger than phablet */
@@ -649,23 +650,6 @@ td {
 #add-movie {
   display: flex;
   justify-content: right;
-}
-
-.navbar-list {
-  display: flex;
-  list-style-type: none;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-}
-
-.nav-home {
-  display: inline-block;
-  text-align: center;
-}
-
-.navbar-item {
-  display: inline-block;
 }
 
 #navbar {
