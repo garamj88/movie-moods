@@ -11,15 +11,19 @@
         <form method="POST">
             {{form.hidden_tag()}}
             <div>
-                {{form.email.label}}{{form.email(class='u-full-width')}}</div>
+                {{form.email.label}}{{form.email(class='u-full-width')}}
+            </div>
             <div>
-                {{form.username.label}}{{form.username(class='u-full-width')}}</div>
+                {{form.username.label}}{{form.username(class='u-full-width')}}
+            </div>
             <div>
-                {{form.password.label}}{{form.password(class='u-full-width')}}</div>
+                {{form.password.label}}{{form.password(class='u-full-width')}}
+            </div>
             <div>
-                {{form.pass_confirm.label}}{{form.pass_confirm(class='u-full-width')}}</div>
-            <div>
-                {{form.submit()}}
+                {{form.pass_confirm.label}}{{form.pass_confirm(class='u-full-width')}}
+            </div>
+            <div class="submit-btn">
+                {{form.submit(class='u-full-width')}}
             </div>
         </form>
     </div>
